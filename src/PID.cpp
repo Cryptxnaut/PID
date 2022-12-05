@@ -44,7 +44,9 @@ double PID(){
 
   intergral += proportional;
 
-    
+  derivative = proportional - prevError;
+
+
 
 
 }
