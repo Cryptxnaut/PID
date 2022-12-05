@@ -56,6 +56,7 @@ double PID(){
   leftMotorGroup.move_relative(desiredDistance, motorPower);
   rightMotorGroup.move_relative(desiredDistance, motorPower);
 
-
+  prevError = proportional;
+  pros::delay(20);
 
 }
