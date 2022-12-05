@@ -17,10 +17,26 @@ double proportional;
 double intergral;
 double derivative;
 
+double resetSensors;
+double leftMotorPosition;
+double rightMotorPosition;
+double averagePosition
 
 
 double getDesiredRotations(wheelDiameter, distance){
   double circumference = (M_PI * wheelDiameter);
   double revolutions = distance / circumference;
   return revolutions
+}
+
+bool resetSensors = true;
+bool enableDrivePID = true;
+
+double PID(){
+  leftMotorPosition = LeftEncoder.get_position();
+  rightMotorPosition = RightEncoder.get_position();
+
+  averagePosition = (leftMotorPosition + rightMotorPosition)/2;
+
+
 }
