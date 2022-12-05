@@ -23,6 +23,7 @@ double resetSensors;
 double leftMotorPosition;
 double rightMotorPosition;
 double averagePosition
+double motorPower;
 
 
 double getDesiredRotations(wheelDiameter, distance){
@@ -46,7 +47,7 @@ double PID(){
 
   derivative = proportional - prevError;
 
-
+  motorPower = (proportional * kP + intergral * kI + derivative * kD) / 360;
 
 
 }
