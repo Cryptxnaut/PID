@@ -25,6 +25,8 @@ double rightMotorPosition;
 double averagePosition
 double motorPower;
 
+double desiredDistance;
+
 
 double getDesiredRotations(wheelDiameter, distance){
   double circumference = (M_PI * wheelDiameter);
@@ -48,6 +50,12 @@ double PID(){
   derivative = proportional - prevError;
 
   motorPower = (proportional * kP + intergral * kI + derivative * kD) / 360;
+
+  ////////////////////////////////
+
+  leftMotorGroup.move_relative(desiredDistance, motorPower);
+  rightMotorGroup.move_relative(desiredDistance, motorPower);
+
 
 
 }
