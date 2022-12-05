@@ -42,6 +42,8 @@ double PID(){
 
   proportional = averagePosition - desiredValue;
 
+  intergral += proportional;
+
     
 
 
