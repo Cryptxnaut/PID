@@ -11,6 +11,8 @@ double kP = 0.0;
 double kI = 0.0;
 double kD = 0.0;
 
+double desiredValue = 200;
+
 double error;
 double prevError = 0;
 double proportional;
@@ -37,6 +39,10 @@ double PID(){
   rightMotorPosition = RightEncoder.get_position();
 
   averagePosition = (leftMotorPosition + rightMotorPosition)/2;
+
+  proportional = averagePosition - desiredValue;
+
+    
 
 
 }
