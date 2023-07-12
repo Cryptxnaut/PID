@@ -3,8 +3,10 @@
 #include <stdlib.h>
 #include <iostream>
 #include "main.h"
+#include "main.cpp"
+#include "Globals.h"
 
-double wheelDiameter = 3.25;
+const double wheelDiameter = 3.250;
 double distance;
 ////////////////////////////
 double kP = 0.0;
@@ -22,24 +24,24 @@ double derivative;
 double resetSensors;
 double leftMotorPosition;
 double rightMotorPosition;
-double averagePosition
+double averagePosition;
 double motorPower;
 
 double desiredDistance;
 
 
-double getDesiredRotations(wheelDiameter, distance){
-  double circumference = (M_PI * wheelDiameter);
-  double revolutions = distance / circumference;
-  return revolutions
-}
+// double getDesiredRotations(wheelDiameter, distance){
+//   double circumference = (M_PI * wheelDiameter);
+//   double revolutions = distance / circumference;
+//   return revolutions
+// }
 
-bool resetSensors = true;
+//bool resetSensors = true;
 bool enableDrivePID = true;
 
 double PID(){
-  leftMotorPosition = LeftEncoder.get_position();
-  rightMotorPosition = RightEncoder.get_position();
+  leftMotorPosition = FrontLeft.get_position();
+  rightMotorPosition = FrontRight.get_position();
 
   averagePosition = (leftMotorPosition + rightMotorPosition)/2;
 
