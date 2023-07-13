@@ -1,5 +1,6 @@
 #include "main.h"
 //#include "pros/imu.hpp"
+#include "Globals.h"
 
 /**
  * A callback function for LLEMU's center button.
@@ -92,12 +93,35 @@ void opcontrol() {
 
 	//pros::delay(20);
 	while (true) {
-    leftMotorGroup.move(master.get_analog(ANALOG_LEFT_Y));
-    rightMotorGroup.move(master.get_analog(ANALOG_RIGHT_Y));
+    // leftMotorGroup.move(master.get_analog(ANALOG_LEFT_Y));
+    // rightMotorGroup.move(master.get_analog(ANALOG_RIGHT_Y));
 
-    pros::delay(2);
+    // pros::delay(2);
+
+	int left = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+    int right = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_Y);
+
+  int finalLeft;
+  int finalRight;
+
+  if (!boost) {
+    finalLeft = left * 0.8;
+    finalRight = right * 0.8;
+  } else {
+    finalLeft = left;
+    finalRight = right;
+    master.rumble(".");
+  }
+
+  leftMotorGroup.move(finalLeft);
+  rightMotorGroup.move(finalRight);
+
+  if (master.get_digital(pros::E_CONTROLLER_DIGITAL_A)) {
+	boost = true;
+  } else if (master.get_digital(pros::E_CONTROLLER_DIGITAL_B)) {
+	boost = false;
   }
 }
 
-
+}
 //Test

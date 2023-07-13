@@ -20,5 +20,7 @@ extern pros::Motor_Group rightMotorGroup;
 
 extern pros::Controller master;
 
+extern bool boost;
+
 
 #endif
