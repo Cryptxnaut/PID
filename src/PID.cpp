@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <iostream>
-#include "main.h"
+//#include "main.h"
 #include "main.cpp"
 #include "Globals.h"
 
