@@ -1,5 +1,5 @@
 #include "main.h"
-#include "pros/imu.hpp"
+//#include "pros/imu.hpp"
 
 /**
  * A callback function for LLEMU's center button.
@@ -86,8 +86,8 @@ void opcontrol() {
 	pros::Imu Inertial(12);
 	pros::Vision VisionSensor(9);
 
-	pros::Motor_Group leftMotorGroup ({FrontLeft, BackLeft});
-	pros::Motor_Group rightMotorGroup ({FrontRight, BackRight});
+	pros::Motor_Group leftMotorGroup ({FrontLeft, BackLeft, MiddleLeft});
+	pros::Motor_Group rightMotorGroup ({FrontRight, BackRight, MiddleRight});
 
 
 	//pros::delay(20);
